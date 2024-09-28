@@ -35,7 +35,7 @@ int main(void) {
         system("git push --set-upstream origin main");
     }
     else{
-        printf("\n\nCommit pushed succesfully!\n");
+        printf("\nCommit pushed succesfully!\n");
     }
 
     return 0;
