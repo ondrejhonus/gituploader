@@ -1,3 +1,0 @@
-/home/qwerti/Documents/GitHub/gituploader/out/build/Configure preset using toolchain file/CMakeFiles/gitup.dir
-/home/qwerti/Documents/GitHub/gituploader/out/build/Configure preset using toolchain file/CMakeFiles/edit_cache.dir
-/home/qwerti/Documents/GitHub/gituploader/out/build/Configure preset using toolchain file/CMakeFiles/rebuild_cache.dir
