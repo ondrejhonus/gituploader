@@ -16,7 +16,7 @@ int main(void) {
     int changes = system("git diff-index --quiet HEAD --");
 
     if (changes == 0) {
-        printf("No changes to commit.\n");
+        printf("There are no changes to commit.\n");
         return 0;
     }
 
@@ -37,7 +37,7 @@ int main(void) {
     // Try executing git push
     int push_result = system("git push");
     
-    // Check if git push failed
+    // If git push fails, then try to execute it with "--set-upstream"
     if (push_result != 0) {
         printf("Initial git push failed. Trying 'git push --set-upstream origin main'\n");
         system("git push --set-upstream origin main");
