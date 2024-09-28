@@ -1,0 +1,3 @@
+/home/qwerti/Documents/GitHub/gituploader/CMakeFiles/gitup.dir
+/home/qwerti/Documents/GitHub/gituploader/CMakeFiles/edit_cache.dir
+/home/qwerti/Documents/GitHub/gituploader/CMakeFiles/rebuild_cache.dir

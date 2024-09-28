@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/gitup.dir/gitup.c.o -o gitup
