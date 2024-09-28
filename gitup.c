@@ -8,18 +8,25 @@ int main(void) {
     char usr_input_msg[MESSAGE_LENGTH] = "";
     char commit_msg[COMMAND_SIZE] = "";
     
+    // Check for an initialized git repo
+    int is_git = system("git rev-parse --is-inside-work-tree > /dev/null 2>&1");
+
+    if (is_git != 0) {
+        printf("Error: not a git repository.\nTry running \"git init\" to initialize it.\n");
+        return 1;
+    }
+    
     // Stage changes
     system("git add .");
-
+    
     // Check if there are any changes to commit
     int changes = system("git diff-index --quiet HEAD --");
-
     if (changes == 0) {
         printf("There are no changes to commit.\n");
         return 0;
     }
 
-    // Prompt user for commit message
+    // Ask user for commit message
     printf("Type your commit message: ");
     fgets(usr_input_msg, MESSAGE_LENGTH, stdin);
     
