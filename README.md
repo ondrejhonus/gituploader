@@ -16,7 +16,7 @@ make gitup
 
 ### add a new line: 
 ```
-alias gitup='/path/to/gitup'
+alias gitup='/path/to/gituploader/gitup'
 ```
 
 #### Restart your terminal and you should be able to type ```gitup``` to push a commit of your current working repository.
