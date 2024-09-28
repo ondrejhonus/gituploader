@@ -23,11 +23,20 @@ int main(void) {
     strcat(commit_msg, usr_input_msg);
     strcat(commit_msg, "\"");
     
-    //printf("%s\n", commit_msg);
-    
     system("git add .");
     system(commit_msg); // This executes "git commit -m "commit_msg""
-    system("git push");
+
+    // Try executing git push
+    int push_result = system("git push");
+    
+    // Check if git push failed
+    if (push_result != 0) {
+        printf("Initial git push failed. Trying 'git push --set-upstream origin main'\n");
+        system("git push --set-upstream origin main");
+    }
+    else{
+        printf("\n\nCommit pushed succesfully!\n");
+    }
 
     return 0;
 }
