@@ -24,13 +24,7 @@ int main(void) {
     printf("Type your commit message: ");
     fgets(usr_input_msg, MESSAGE_LENGTH, stdin);
     
-    // Remove newline character if it exists
-    size_t len = strlen(usr_input_msg);
-    if (len > 0 && usr_input_msg[len - 1] == '\n') {
-        usr_input_msg[len - 1] = '\0';
-    }
-    
-    // Make commit command
+    // Make and run commit command
     snprintf(commit_msg, COMMAND_SIZE, "git commit -m \"%s\"", usr_input_msg);
     system(commit_msg); // This executes "git commit -m "commit_msg""
     
