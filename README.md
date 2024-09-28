@@ -19,7 +19,7 @@ make gitup
 alias gitup='/path/to/gituploader/gitup'
 ```
 
-#### Restart your terminal and you should be able to type ```gitup``` to push a commit of your current working repository.
+#### Restart your terminal and you should be able to type ```gitup``` to commit and push an update of your current working repository to github.
 
 # Usage
 - Type ```gitup``` into your terminal while being in an initialized git repository
