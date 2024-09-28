@@ -9,14 +9,14 @@ git clone https://github.com/ondrejhonus/gituploader.git
 
 cd gituploader
 
-make
+make gitup
 ```
 ### edit your rcfile 
 ```vim ~/.bashrc``` or ```vim ~/.zshrc``` (depending on your shell)
 
 ### add a new line: 
 ```
-alias gitup='/home/qwerti/Documents/GitHub/gituploader/gitup'
+alias gitup='/path/to/gitup'
 ```
 
 #### Restart your terminal and you should be able to type ```gitup``` to push a commit of your current working repository.
