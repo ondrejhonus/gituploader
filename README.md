@@ -9,7 +9,7 @@ git clone https://github.com/ondrejhonus/gituploader.git
 
 cd gituploader
 
-make gitup
+make
 ```
 ### edit your rcfile 
 ```vim ~/.bashrc``` or ```vim ~/.zshrc``` (depending on your shell)
