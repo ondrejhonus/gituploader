@@ -1,6 +1,7 @@
 # About
 This is a program that makes it easier to make an update on git.
-It allows you to run just 1 command instead of ```git add . & git commit -m "[MESSAGE]" & git push```, 
+It allows you to run just 1 command to commit and push a change. 
+Instead of ```git add . & git commit -m "[MESSAGE]" & git push```, 
 you can just run ```gitup``` and then type your desired commit message.
 
 # Instalation
