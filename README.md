@@ -13,8 +13,6 @@ cd gituploader
 sudo make gitup
 ```
 
-#### Restart your terminal and you should be able to type ```gitup``` to commit and push an update of your current working repository to github.
-
 # Usage
 - Type ```gitup``` into your terminal while being in an initialized git repository
 - Specify your commit message
