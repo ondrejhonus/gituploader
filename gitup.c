@@ -41,15 +41,15 @@ int main(void) {
 
     // If git push fails, then try to execute it with "--set-upstream"
     if (push_result != 0) {
-        printf("Initial git push failed. Trying 'git push --set-upstream origin main'\n");
+        printf("Initial git push failed. Trying 'git push --set-upstream origin master'\n");
         // Try pushing with --set-upstream
-        push_result = system("git push --set-upstream origin main");
+        push_result = system("git push --set-upstream origin master");
         if (push_result != 0) {
             printf("Couldn't push the commit to github. You're on your own now\n");
             return 1;
         } 
         else {
-            printf("\nCommit pushed successfully! (using 'git push --set-upstream origin main')\n");
+            printf("\nCommit pushed successfully! (using 'git push --set-upstream origin master')\n");
         }
     }
     else {
