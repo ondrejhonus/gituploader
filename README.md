@@ -10,7 +10,7 @@ git clone https://github.com/ondrejhonus/gituploader.git
 
 cd gituploader
 
-sudo make gitup
+sudo make install
 ```
 
 # Usage
