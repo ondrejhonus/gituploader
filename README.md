@@ -5,11 +5,11 @@ Instead of ```git add . & git commit -m "[MESSAGE]" & git push```,
 you can just run ```gitup``` and then type your desired commit message.
 
 # Dependencies
-## Readline and git
-##### Arch: 
-    sudo pacman -S readline git
-##### Debian: 
-    sudo apt-get install libreadline-dev git
+- ### Readline and git
+    - ##### Arch: 
+        ```sudo pacman -S readline git```
+    - ##### Debian: 
+        ```sudo apt-get install libreadline-dev git```
 
 # Instalation
 ```
