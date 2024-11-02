@@ -19,11 +19,19 @@ int main(void) {
     // Stage changes
     system("git add .");
 
-    // Check if there are any changes to commit
-    int changes = system("git diff-index --quiet HEAD --");
-    if (changes == 0) {
-        printf("There are no changes to commit.\n");
-        return 0;
+    // Check if there has been a commit already before
+    int has_commit = system("git rev-parse HEAD > /dev/null 2>&1");
+
+    // If this isn't a first commit, check for changes
+    if (has_commit == 0) {
+        int changes = system("git diff-index --quiet HEAD --");
+        if (changes == 0) {
+            printf("There are no changes to commit.\n");
+            return 0;
+        }
+    }
+    else{
+        printf("This is a first commit in this repo.\n");
     }
 
     // Ask user for commit message
