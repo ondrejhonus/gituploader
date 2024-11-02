@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <readline/readline.h>
+#include <readline/history.h>
 
 #define MESSAGE_LENGTH 128
 #define COMMAND_SIZE 256
 
 int main(void) {
-    char usr_input_msg[MESSAGE_LENGTH] = "";
+    char *usr_input_msg;
     char commit_msg[COMMAND_SIZE] = "";
 
     // Check for an initialized git repo
@@ -29,18 +31,23 @@ int main(void) {
             printf("There are no changes to commit.\n");
             return 0;
         }
-    }
-    else{
+    } else {
         printf("This is a first commit in this repo.\n");
     }
 
     // Ask user for commit message
-    printf("Type your commit message: ");
-    fgets(usr_input_msg, MESSAGE_LENGTH, stdin);
+    usr_input_msg = readline("Type your commit message: ");
+    if (usr_input_msg == NULL) {
+        printf("Error reading input.\n");
+        return 1;
+    }
 
     // Make and run commit command
     snprintf(commit_msg, COMMAND_SIZE, "git commit -m \"%s\"", usr_input_msg);
     system(commit_msg);  // This executes "git commit -m "commit_msg""
+
+    // Free the input message
+    free(usr_input_msg);
 
     // Try executing git push
     int push_result = system("git push");
