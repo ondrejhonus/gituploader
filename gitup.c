@@ -12,9 +12,7 @@ int main(void) {
     int is_git = system("git rev-parse --is-inside-work-tree > /dev/null 2>&1");
 
     if (is_git != 0) {
-        printf(
-            "Error: not a git repository.\nTry running \"git init\" to "
-            "initialize it.\n");
+        printf("Error: not a git repository.\nTry running \"git init\" to initialize it.\n");
         return 1;
     }
 
@@ -42,17 +40,28 @@ int main(void) {
     // If git push fails, then try to execute it with "--set-upstream"
     if (push_result != 0) {
         printf("Initial git push failed. Trying 'git push --set-upstream origin master'\n");
-        // Try pushing with --set-upstream
+
+        // Try pushing with origin master
         push_result = system("git push --set-upstream origin master");
         if (push_result != 0) {
-            printf("Couldn't push the commit to github. You're on your own now\n");
-            return 1;
-        } 
-        else {
+            printf("Pushing with origin master failed. Trying 'git push --set-upstream origin main'\n");
+
+            // Try pushing with origin main
+            push_result = system("git push --set-upstream origin main");
+            if (push_result != 0) {
+                printf("Couldn't push the commit to github. You're on your own now :/\n");
+                return 1;
+            } else {
+                // If pushing with origin main works
+                printf("\nCommit pushed successfully! (using 'git push --set-upstream origin main')\n");
+            }
+
+        } else {
+            // If pushing with origin master works
             printf("\nCommit pushed successfully! (using 'git push --set-upstream origin master')\n");
         }
-    }
-    else {
+    } else {
+        // If pure git push works
         printf("\nCommit pushed successfully!\n");
     }
     return 0;
