@@ -7,9 +7,13 @@ you can just run ```gitup``` and then type your desired commit message.
 # Dependencies
 - ### Readline and git
     - ##### Arch: 
-        ```sudo pacman -S readline git```
+        ```
+        sudo pacman -S readline git
+        ```
     - ##### Debian: 
-        ```sudo apt-get install libreadline-dev git```
+        ```
+        sudo apt-get install libreadline-dev git
+        ```
 
 # Instalation
 ```
@@ -24,12 +28,12 @@ sudo make install
 - Type ```gitup``` into your terminal while being in an initialized git repository
 - Specify your commit message
 
-I recommend using github-cli with this and when you want to make a new github repo type
+I recommend using [github-cli](https://cli.github.com/) with this and when you want to make a new github repo type:
+```
+git init
 
-    git init
+gh repo create
 
-    gh repo create
-
-    gitup
-
-And you don't even have to leave your terminal
+gitup
+```
+It's super fast and you don't even have to leave your terminal!
