@@ -28,7 +28,7 @@ int main(void) {
     if (has_commit == 0) {
         int changes = system("git diff-index --quiet HEAD --");
         if (changes == 0) {
-            printf("\033[38;5;202mThere are no changes to commit.\033[0m\n");
+            printf("\033[1;33mThere are no changes to commit.\033[0m\n");
             return 0;
         }
     } else {
