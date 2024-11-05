@@ -14,7 +14,7 @@ int main(void) {
     int is_git = system("git rev-parse --is-inside-work-tree > /dev/null 2>&1");
 
     if (is_git != 0) {
-        printf("Error: not a git repository.\nTry running \"git init\" to initialize it.\n");
+        printf("\033[1;31mError: not a git repository.\nTry running \"git init\" to initialize it.\033[0m\n");
         return 1;
     }
 
@@ -28,19 +28,20 @@ int main(void) {
     if (has_commit == 0) {
         int changes = system("git diff-index --quiet HEAD --");
         if (changes == 0) {
-            printf("There are no changes to commit.\n");
+            printf("\033[38;5;202mThere are no changes to commit.\033[0m\n");
             return 0;
         }
     } else {
-        printf("This is a first commit in this repo.\n");
+        printf("\033[1;34mThis is a first commit in this repo.\033[0m\n");
     }
 
-    printf("Last commit:\n");
-    system("git --no-pager log -1 --pretty=format:'%s | by %an on %ad' --date=short");
+    // Print the last commit message and date
+    printf("\033[1;31mLast commit:\n\033[0m"); // Resetting the color afterwards
+    system("git --no-pager log -1 --pretty=format:'\033[1;32m%s\033[0m | by \033[1;33m%an\033[0m on \033[1;35m%ad\033[0m' --date=short");
     printf("\n\n");
 
     // Ask user for commit message
-    usr_input_msg = readline("Type your commit message: ");
+    usr_input_msg = readline("\033[1;36mType your commit message: \n\033[0m");
     if (usr_input_msg == NULL) {
         printf("Error reading input.\n");
         return 1;
@@ -58,30 +59,29 @@ int main(void) {
 
     // If git push fails, then try to execute it with "--set-upstream"
     if (push_result != 0) {
-        printf("Initial git push failed. Trying 'git push --set-upstream origin master'\n");
-
+        printf("\033[1;33mInitial git push failed. Trying 'git push --set-upstream origin master'\n\033[0m");
+        
         // Try pushing with origin master
         push_result = system("git push --set-upstream origin master");
         if (push_result != 0) {
-            printf("Pushing with origin master failed. Trying 'git push --set-upstream origin main'\n");
-
+            printf("\033[1;33mInitial git push failed. Trying 'git push --set-upstream origin main'\n\033[0m");
             // Try pushing with origin main
             push_result = system("git push --set-upstream origin main");
             if (push_result != 0) {
-                printf("Couldn't push the commit to github. You're on your own now :/\n");
+                printf("\033[1;31mCouldn't push the commit to github. You're on your own now :/\n\033[0m");
                 return 1;
             } else {
                 // If pushing with origin main works
-                printf("\nCommit pushed successfully! (using 'git push --set-upstream origin main')\n");
+                printf("\033[1;32m\nCommit pushed successfully! (using 'git push --set-upstream origin main')\n\033[0m");
             }
 
         } else {
             // If pushing with origin master works
-            printf("\nCommit pushed successfully! (using 'git push --set-upstream origin master')\n");
+            printf("\033[1;32m\nCommit pushed successfully! (using 'git push --set-upstream origin master')\n\033[0m");
         }
     } else {
         // If pure git push works
-        printf("\nCommit pushed successfully!\n");
+        printf("\033[1;32m\nCommit pushed successfully!\n\033[0m");
     }
     return 0;
 }
