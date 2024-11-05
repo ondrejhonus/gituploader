@@ -35,6 +35,10 @@ int main(void) {
         printf("This is a first commit in this repo.\n");
     }
 
+    printf("Last commit:\n");
+    system("git --no-pager log -1 --pretty=format:'%s | by %an on %ad' --date=short");
+    printf("\n\n");
+
     // Ask user for commit message
     usr_input_msg = readline("Type your commit message: ");
     if (usr_input_msg == NULL) {
