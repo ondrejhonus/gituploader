@@ -14,7 +14,7 @@ int main(void) {
     int is_git = system("git rev-parse --is-inside-work-tree > /dev/null 2>&1");
 
     if (is_git != 0) {
-        printf("\033[1;31mError: not a git repository.\nTry running \"git init\" to initialize it.\033[0m\n");
+        fprintf(stderr, "Error: not a git repository.\nTry running \"git init\" to initialize it.\n");
         return 1;
     }
 
@@ -43,7 +43,7 @@ int main(void) {
     // Ask user for commit message
     usr_input_msg = readline("\033[1;36mType your commit message: \n\033[0m");
     if (usr_input_msg == NULL) {
-        printf("Error reading input.\n");
+        fprintf(stderr, "Error reading input.\n");
         return 1;
     }
 
@@ -68,7 +68,7 @@ int main(void) {
             // Try pushing with origin main
             push_result = system("git push --set-upstream origin main");
             if (push_result != 0) {
-                printf("\033[1;31mCouldn't push the commit to github. You're on your own now :/\n\033[0m");
+                fprintf(stderr, "\033[1;31mCouldn't push the commit to github. You're on your own now :/\n\033[0m");
                 return 1;
             } else {
                 // If pushing with origin main works
