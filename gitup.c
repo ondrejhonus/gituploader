@@ -24,7 +24,7 @@ int main(void) {
     // Check if there has been a commit already before
     int has_commit = system("git rev-parse HEAD > /dev/null 2>&1");
 
-    // If this isn't a first commit, check for changes
+    // If this isn't a first commit, check for changes and print the last commit
     if (has_commit == 0) {
         int changes = system("git diff-index --quiet HEAD --");
         if (changes == 0) {
