@@ -36,7 +36,7 @@ int main(void) {
         system("git --no-pager log -1 --pretty=format:'\033[1;32m%s\033[0m | by \033[1;33m%an\033[0m on \033[1;35m%ad\033[0m' --date=short");
         printf("\n\n");
     } else {
-        printf("\033[1;36mThis is your first commit in this repo.\033[0m\n");
+        printf("\033[1;33mThis is your first commit in this repo.\033[0m\n");
     }
 
     // Ask user for commit message
