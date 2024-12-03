@@ -24,7 +24,7 @@ int main(void) {
     // Check if there has been a commit already before
     int has_commit = system("git rev-parse HEAD > /dev/null 2>&1");
 
-    // If this isn't a first commit, check for changes
+    // If this isn't a first commit, check for changes and print the last commit
     if (has_commit == 0) {
         int changes = system("git diff-index --quiet HEAD --");
         if (changes == 0) {
@@ -35,6 +35,7 @@ int main(void) {
         printf("\033[1;35mLast commit:\n\033[0m"); // Resetting the color afterwards
         system("git --no-pager log -1 --pretty=format:'\033[1;32m%s\033[0m | by \033[1;33m%an\033[0m on \033[1;35m%ad\033[0m' --date=short");
         printf("\n\n");
+
     } else {
         printf("\033[1;33mThis is your first commit in this repo.\033[0m\n");
     }
