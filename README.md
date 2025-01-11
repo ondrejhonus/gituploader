@@ -12,7 +12,7 @@ you can just run ```gitup``` and then type your desired commit message.
         ```
     - ##### Debian: 
         ```
-        sudo apt-get install libreadline-dev git
+        sudo apt-get install libreadline-dev libreadline8 git
         ```
 
 # Instalation
@@ -21,6 +21,7 @@ git clone https://github.com/ondrejhonus/gituploader.git
 
 cd gituploader
 
+# You might get some errors on debian (tested on ubuntu server), but it should still work
 sudo make install
 ```
 
