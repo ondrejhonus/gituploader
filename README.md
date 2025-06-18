@@ -4,6 +4,9 @@ It allows you to run just 1 command to commit and push a change.
 Instead of ```git add . & git commit -m "[MESSAGE]" & git push```, 
 you can just run ```gitup``` and then type your desired commit message.
 
+## Replacement
+This project has been replaced by my other project "[bubblegit](https://github.com/ondrejhonus/bubblegit), that's made in Go instead of C and has a partial TUI where you can do much more than just "add, commit, push", but if you like this one, you can still open up an issue if anything goes wrong, or you can fix the problem yourself too. ;-)
+
 # Dependencies
 - ### Readline and git
     - ##### Arch: 
